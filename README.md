@@ -1,7 +1,7 @@
 # Preamble
 - This guide is for a dinit install.
 - You must know to partition, format and mount drives.
-- To set keyboard layout for shell session: _loadkeys es_
+- To set keyboard layout for shell session: _loadkeys us-acentos_
 - Code style language
   - Brackets: Contingent
   - Bars: Optional
