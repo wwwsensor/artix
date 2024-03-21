@@ -25,15 +25,16 @@ Uncomment _en\_US.UTF-8 UTF-8_ for en\_US in _/etc/locale.gen_ then run the comm
 ln -sf /usr/share/zoneinfo/<Region>/<City> /etc/localtime
 ln -sf /etc/dinit.d/connmand /etc/dinit.d/boot.d/.
 echo permit nopass :wheel >/etc/doas.conf
-echo LANG=en_US.UTF-8 >/etc/locale.conf
 echo KEYMAP=<keymap> >/etc/vconsole.conf
+echo LANG=en_US.UTF-8 >/etc/locale.conf
 echo <hostname> >/etc/hostname
+hwclock --systohc
 [ useradd -mG <group> <user> ]
 [ nvim /etc/sudoers ]
-hwclock --systohc
 passwd [ <user> ]
 chsh [ <user> ]
 locale-gen
+ln -sf $(which doas) /usr/bin/sudo
 ```
 _/etc/hosts_ :
 ```
@@ -45,11 +46,7 @@ _/etc/hosts_ :
 _/etc/default/grub_
 ### 5 - Install Grub
 ```
-# For BIOS systems
-grub-install --recheck <drives with OSs>
-# For UEFI systems
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
-# For all systems
+grub-install
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 ### 6 - Autologin tty (optional)
@@ -60,6 +57,5 @@ GETTY_ARGS="--autologin <user>"
 ```
 ### 6 - End
 ```
-exit
-umount -R <device with raw iso>;reboot
+exit; reboot
 ```
