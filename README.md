@@ -4,6 +4,7 @@
 - To set keyboard layout for shell session: _loadkeys us-acentos_
 - Code style language
   - Brackets: Contingent
+  - Arrows: Variable
   - Bars: Optional
 - [How to manage Wi-Fi](https://wiki.archlinux.org/title/Network_configuration/Wireless)
 - [Dinit docs](https://github.com/davmac314/dinit)
@@ -30,7 +31,6 @@ echo LANG=en_US.UTF-8 >/etc/locale.conf
 echo <hostname> >/etc/hostname
 hwclock --systohc
 [ useradd -mG <group> <user> ]
-[ nvim /etc/sudoers ]
 passwd [ <user> ]
 chsh [ <user> ]
 locale-gen
