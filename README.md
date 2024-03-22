@@ -46,7 +46,11 @@ _/etc/hosts_ :
 _/etc/default/grub_
 ### 5 - Install Grub
 ```
-grub-install
+# For BIOS systems
+grub-install --recheck <drives with OSs>
+# For UEFI systems
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+# Always
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 ### 6 - Autologin tty (optional)
